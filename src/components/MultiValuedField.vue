@@ -35,9 +35,9 @@ export default {
       console.log(this.values)
       console.log(this.values.slice(-1)[0])
 
-      // if (this.values.slice(-1)[0] === '') {
-      //   return
-      // }
+      if (this.values.slice(-1)[0] === '') {
+        return
+      }
       this.values.push('')
     }
   }
