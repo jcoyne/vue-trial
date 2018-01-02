@@ -5,7 +5,7 @@
     <ol>
       <ItemField
         v-for="(value, index) in values"
-        v-bind:value="value"
+        v-model="values[index]"
         v-bind:index="index"
         v-bind:field="field">
       </ItemField>
