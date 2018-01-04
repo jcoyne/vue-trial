@@ -32,6 +32,7 @@ export default {
     }
   },
   methods: {
+    // Create a new item with a blank value
     addItem () {
       // force the user to enter something
       if (this.values.slice(-1)[0] === '') {
@@ -39,10 +40,13 @@ export default {
       }
       this.values.push('')
     },
-    removeItem(index) {
+    // Remove the item at the specified index
+    removeItem (index) {
       this.values.splice(index, 1)
     },
-    showRemove() {
+    // Returns true if the remove buttons be shown for this field.
+    // This is true if there's more than on entry.
+    showRemove () {
       return this.values.length > 1
     }
   }
