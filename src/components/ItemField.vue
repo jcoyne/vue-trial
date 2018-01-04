@@ -10,7 +10,7 @@
            v-bind:name="field.name"
            v-bind:value="value"
            v-on:input="updateValue($event.target.value)" />
-    <button>Remove</button>
+    <button v-if="showRemove" v-on:click="$emit('delete')">Remove</button>
   </li>
 </template>
 
@@ -28,6 +28,10 @@ export default {
     },
     index: {
       type: Number,
+      required: true
+    },
+    showRemove: {
+      type: Boolean,
       required: true
     }
   },
