@@ -1,6 +1,5 @@
 <template>
   <li>
-    idx: {{index}}
     <input v-if="index === 0"
            v-bind:id="field.name"
            v-bind:name="field.name"

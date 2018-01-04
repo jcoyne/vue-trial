@@ -4,8 +4,8 @@
     <p class="help-block">{{field.help}}</p>
     <ol>
       <ItemField
-        v-for="(value, index) in values"
-        v-model="values[index]"
+        v-for="(item, index) in value"
+        v-model="value[index]"
         v-bind:index="index"
         v-bind:field="field"
         v-bind:showRemove="showRemove()"
@@ -26,28 +26,29 @@ export default {
       type: Object,
       required: true
     },
-    values: {
+    value: {
       type: Array,
-      default: () => ['']
+      required: true
     }
   },
   methods: {
     // Create a new item with a blank value
     addItem () {
       // force the user to enter something
-      if (this.values.slice(-1)[0] === '') {
+      if (this.value.slice(-1)[0] === '') {
         return
       }
-      this.values.push('')
+      this.value.push('')
     },
     // Remove the item at the specified index
     removeItem (index) {
-      this.values.splice(index, 1)
+      this.value.splice(index, 1)
+      this.$emit('change', this.value)
     },
     // Returns true if the remove buttons be shown for this field.
     // This is true if there's more than on entry.
     showRemove () {
-      return this.values.length > 1
+      return this.value.length > 1
     }
   }
 }

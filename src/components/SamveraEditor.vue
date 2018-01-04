@@ -1,10 +1,13 @@
 <template>
   <div class="multi-value-form">
-    <MultiValuedField
-      v-for="field in schema"
-      v-bind:field="field"
-      v-bind:key="field.name">
-    </MultiValuedField>
+    <template v-for="field in schema">
+      <MultiValuedField
+        v-model="values[field.name]"
+        v-bind:field="field"
+        v-bind:key="field.name">
+      </MultiValuedField>
+    </template>
+    <button v-on:click="save()">Save</button>
   </div>
 </template>
 
@@ -24,7 +27,18 @@ export default {
         { 'name': 'description',
           'label': 'Abstract or Summary',
           'help': 'Free-text notes about the work. Examples include abstracts of a paper or citation information for a journal article.',
-          'required': false } ]
+          'required': false } ],
+      values: {
+        'title': [''],
+        'description': ['']
+      }
+    }
+  },
+  methods: {
+    save () {
+      console.log('Save')
+      console.log(this.values.title)
+      console.log(this.values.description)
     }
   }
 }
