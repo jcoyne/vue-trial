@@ -1,7 +1,8 @@
 # vue-trial
 
-> A Vue.js project
+An attempt to replicate the functionality of the hydra-editor in Vue.js
 
+### Example screenshot:
 
 <img width="792" alt="screen shot 2018-02-08 at 11 09 03 am" src="https://user-images.githubusercontent.com/92044/35987203-b24b34b2-0cc0-11e8-8bf8-6d82bd009433.png">
 
